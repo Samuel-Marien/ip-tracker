@@ -1,9 +1,8 @@
-import React from 'react'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head"
+import styles from "../styles/Home.module.css"
 
-import MyMap from '../components/MyMap'
-
+import MyMap from "../components/MyMap"
+import SearchBar from "../components/SearchBar"
 
 export default function Home() {
   return (
@@ -14,14 +13,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <h1 className="text-3xl font-bold underline text-gray-400"> Hello world!</h1>
-      <MyMap />
+        <SearchBar />
+        <MyMap />
       </main>
-      <footer className={styles.footer}>
-      </footer>
-      
+      <footer className={styles.footer}></footer>
     </div>
   )
 }
-
-
