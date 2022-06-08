@@ -5,11 +5,11 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  // parser: '@babel/eslint-parser', //rajouter par Sam pour fix : "Parsing error: Unexpected token <eslint"
-  parser: "babel-eslint",
+  parser: "@babel/eslint-parser", //rajouter par Sam pour fix : "Parsing error: Unexpected token <eslint"
+  //parser: "babel-eslint",
   parserOptions: {
     sourceType: "module",
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
   },
   rules: {
     indent: "off",

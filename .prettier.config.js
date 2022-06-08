@@ -1,4 +1,4 @@
 module.exports = {
-    "semi": false,
-    "singleQuote": false
+  semi: false,
+  singleQuote: false,
 }
