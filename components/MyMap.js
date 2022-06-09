@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react"
-import { GoogleMap, LoadScript } from "@react-google-maps/api"
+import { GoogleMap, LoadScript, Marker, InfoBox } from "@react-google-maps/api"
 import axios from "axios"
 
 import Context from "./Context"
@@ -20,7 +20,7 @@ const MyMap = (props) => {
       )
       .then(function (response) {
         // handle success
-        console.log(response.data)
+        // console.log(response.data)
         setcompletObject(response.data)
         setUserLat(response.data.location.latitude)
         setUserLng(response.data.location.longitude)
@@ -44,10 +44,36 @@ const MyMap = (props) => {
     lng: userLng,
   }
 
+  const position = {
+    lat: userLat,
+    lng: userLng,
+  }
+
+  // const [test, setTest] = useState(true)
+  const onLoad = (marker) => {
+    console.log("marker: ", marker.visible)
+
+    // setTest(marker.visible)
+  }
+  // console.log(test)
+
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_API_KEY}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
         {/* Child components, such as markers, info windows, etc. */}
+
+        <Marker
+          onLoad={onLoad}
+          position={position}
+          title="plop"
+          visible={true}
+        />
+
+        {/* <InfoBox onLoad={onLoad} position={center}>
+          <div className="border p-2 opacity-75 bg-slate-400 rounded-xl">
+            <div className="font-bold text-xl">Hello, World!</div>
+          </div>
+        </InfoBox> */}
         <></>
       </GoogleMap>
     </LoadScript>
