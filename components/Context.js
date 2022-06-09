@@ -2,7 +2,7 @@ import React from "react"
 import { createContext, useState } from "react"
 
 export const Provider = (props) => {
-  const [ip, setIp] = useState("8.8.8.8")
+  const [ip, setIp] = useState("142.250.217.78")
   const [completObject, setcompletObject] = useState({})
 
   return (

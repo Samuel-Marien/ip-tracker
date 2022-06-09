@@ -30,9 +30,9 @@ const MyBoard = () => {
   const { completObject } = useContext(Context)
 
   return (
-    <div>
+    <div className="w-full md:w-7/12">
       {completObject.ip ? (
-        <div className="flex flex-col md:flex-row justify-between border p-3">
+        <div className="flex flex-col md:flex-row justify-between shadow-2xl p-5 rounded-xl bg-slate-200 text-slate-500">
           {/* ip section  */}
           <div className="text-center">
             <p className=" font-bold">
@@ -76,7 +76,7 @@ const MyBoard = () => {
           {/* security section  */}
           <div>
             <div className="flex flex-col items-center mt-5 md:mt-0">
-              <p className="font-bold text-2xl mb-2">Security:</p>
+              <p className="font-bold text-xl mb-2">Security:</p>
               <div className="flex justify-between">
                 <SecurityItem
                   name="Proxy"
