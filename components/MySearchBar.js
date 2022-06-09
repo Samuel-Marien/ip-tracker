@@ -9,6 +9,7 @@ import { SiOpenstreetmap } from "react-icons/si"
 
 const MySearchBar = () => {
   const { setIp } = useContext(Context)
+
   const formik = useFormik({
     initialValues: {
       userIP: "",

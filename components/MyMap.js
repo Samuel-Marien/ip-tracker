@@ -6,19 +6,24 @@ import Context from "./Context"
 
 const MyMap = (props) => {
   const { ip } = useContext(Context)
+  const { setcompletObject } = useContext(Context)
   const [userLat, setUserLat] = useState(0)
   const [userLng, setUserLng] = useState(0)
 
   useEffect(() => {
     axios
+      // .get(
+      //   `https://geo.ipify.org/api/v1?apiKey=${process.env.NEXT_PUBLIC_API_KEY_IP}&ipAddress=${ip}`
+      // )
       .get(
-        `https://geo.ipify.org/api/v1?apiKey=${process.env.NEXT_PUBLIC_API_KEY_IP}&ipAddress=${ip}`
+        `https://api.ipregistry.co/${ip}?key=${process.env.NEXT_PUBLIC_API_KEY_IP2}`
       )
       .then(function (response) {
         // handle success
         console.log(response.data)
-        setUserLat(response.data.location.lat)
-        setUserLng(response.data.location.lng)
+        setcompletObject(response.data)
+        setUserLat(response.data.location.latitude)
+        setUserLng(response.data.location.longitude)
       })
       .catch(function (error) {
         // handle error
@@ -31,7 +36,7 @@ const MyMap = (props) => {
 
   const containerStyle = {
     width: "100%",
-    height: "500px",
+    height: "600px",
   }
 
   const center = {

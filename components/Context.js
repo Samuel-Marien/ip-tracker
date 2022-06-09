@@ -2,12 +2,8 @@ import React from "react"
 import { createContext, useState } from "react"
 
 export const Provider = (props) => {
-  const [ip, setIp] = useState("")
-  //   const [location, setLocation] = useState("California, Manhattan Beach, 90266")
-  //   const [timezone, setTimezone] = useState("UTC-07:00")
-  //   const [isp, setIsp] = useState("SpaceX Services, Inc.")
-  //   const [lat, setLat] = useState(33.88474)
-  //   const [lng, setLng] = useState(-118.41091)
+  const [ip, setIp] = useState("8.8.8.8")
+  const [completObject, setcompletObject] = useState({})
 
   return (
     <Context.Provider
@@ -15,16 +11,8 @@ export const Provider = (props) => {
       value={{
         ip,
         setIp,
-        // location,
-        // setLocation,
-        // timezone,
-        // setTimezone,
-        // isp,
-        // setIsp,
-        // lat,
-        // setLat,
-        // lng,
-        // setLng,
+        completObject,
+        setcompletObject,
       }}></Context.Provider>
   )
 }
@@ -34,4 +22,11 @@ export default Context
 
 // 86.218.115.0
 // 143.131.0.0
-// 8.8.8.8
+// 46.19.37.108
+// google.com – 142.250.217.78
+// gmail.com – 142.251.33.69
+// duckduckgo.com – 40.89.244.232
+// facebook.com – 157.240.3.35
+// youtube.com – 216.58.206.238
+// ebay.com – 66.211.175.229
+// Yahoo search – 98.136.144.138

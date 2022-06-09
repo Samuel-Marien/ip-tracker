@@ -6,7 +6,7 @@ module.exports = {
     node: true,
   },
   parser: "@babel/eslint-parser", //rajouter par Sam pour fix : "Parsing error: Unexpected token <eslint"
-  //parser: "babel-eslint",
+  parser: "babel-eslint",
   parserOptions: {
     sourceType: "module",
     ecmaVersion: 2021,
