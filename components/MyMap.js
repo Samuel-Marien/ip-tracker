@@ -50,10 +50,8 @@ const MyMap = (props) => {
   }
 
   const onLoad = (marker) => {
-    console.log('marker: ', marker.visible)
+    // console.log('marker: ', marker.visible)
   }
-
-  console.log(completObject.company.domain)
 
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_API_KEY}>
@@ -63,7 +61,7 @@ const MyMap = (props) => {
         <Marker
           onLoad={onLoad}
           position={position}
-          title={completObject.company.domain}
+          title={completObject.company ? completObject.company.domain : null}
           visible={true}
         />
 
