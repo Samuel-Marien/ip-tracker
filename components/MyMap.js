@@ -63,6 +63,7 @@ const MyMap = (props) => {
           position={position}
           title={completObject.company ? completObject.company.domain : null}
           visible={true}
+          className="p-10 bg-red-500"
         />
 
         {/* <InfoBox onLoad={onLoad} position={center}>
