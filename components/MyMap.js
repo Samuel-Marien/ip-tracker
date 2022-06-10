@@ -9,6 +9,7 @@ const MyMap = (props) => {
   const { completObject, setcompletObject } = useContext(Context)
   const [userLat, setUserLat] = useState(0)
   const [userLng, setUserLng] = useState(0)
+  const [companyName, setCompanyName] = useState('')
 
   useEffect(() => {
     axios
@@ -24,6 +25,8 @@ const MyMap = (props) => {
         setcompletObject(response.data)
         setUserLat(response.data.location.latitude)
         setUserLng(response.data.location.longitude)
+        setCompanyName(response.data.company.name)
+        // console.log(response.data)
       })
       .catch(function (error) {
         // handle error
@@ -52,7 +55,7 @@ const MyMap = (props) => {
   const onLoad = (marker) => {
     // console.log('marker: ', marker.visible)
   }
-
+  console.log(companyName)
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_API_KEY}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
@@ -68,12 +71,7 @@ const MyMap = (props) => {
         <InfoBox onLoad={onLoad} position={center}>
           <div className="border p-2 opacity-75 bg-slate-400 rounded-xl">
             <div className="font-bold text-xl">
-              <p>
-                👋 Hello,{' '}
-                {completObject.carrier.name
-                  ? completObject.carrier.name
-                  : completObject.company.name}
-              </p>
+              <p>👋 Hello, {companyName}</p>
             </div>
           </div>
         </InfoBox>
