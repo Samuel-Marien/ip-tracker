@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useContext } from "react"
-import { GoogleMap, LoadScript, Marker, InfoBox } from "@react-google-maps/api"
-import axios from "axios"
+import React, { useEffect, useState, useContext } from 'react'
+import { GoogleMap, LoadScript, Marker, InfoBox } from '@react-google-maps/api'
+import axios from 'axios'
 
-import Context from "./Context"
+import Context from './Context'
 
 const MyMap = (props) => {
   const { ip } = useContext(Context)
-  const { setcompletObject } = useContext(Context)
+  const { completObject, setcompletObject } = useContext(Context)
   const [userLat, setUserLat] = useState(0)
   const [userLng, setUserLng] = useState(0)
 
@@ -35,27 +35,25 @@ const MyMap = (props) => {
   }, [ip])
 
   const containerStyle = {
-    width: "100%",
-    height: "1000px",
+    width: '100%',
+    height: '1000px'
   }
 
   const center = {
     lat: userLat,
-    lng: userLng,
+    lng: userLng
   }
 
   const position = {
     lat: userLat,
-    lng: userLng,
+    lng: userLng
   }
 
-  // const [test, setTest] = useState(true)
   const onLoad = (marker) => {
-    console.log("marker: ", marker.visible)
-
-    // setTest(marker.visible)
+    console.log('marker: ', marker.visible)
   }
-  // console.log(test)
+
+  console.log(completObject.company.domain)
 
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_API_KEY}>
@@ -65,7 +63,7 @@ const MyMap = (props) => {
         <Marker
           onLoad={onLoad}
           position={position}
-          title="plop"
+          title={completObject.company.domain}
           visible={true}
         />
 
