@@ -69,8 +69,10 @@ const MyMap = (props) => {
           <div className="border p-2 opacity-75 bg-slate-400 rounded-xl">
             <div className="font-bold text-xl">
               <p>
-                Hello,{' '}
-                {completObject.company ? completObject.company.domain : null}
+                👋 Hello,{' '}
+                {completObject.carrier.name
+                  ? completObject.carrier.name
+                  : completObject.company.name}
               </p>
             </div>
           </div>
