@@ -63,14 +63,18 @@ const MyMap = (props) => {
           position={position}
           title={completObject.company ? completObject.company.domain : null}
           visible={true}
-          className="p-10 bg-red-500"
         />
 
-        {/* <InfoBox onLoad={onLoad} position={center}>
+        <InfoBox onLoad={onLoad} position={center}>
           <div className="border p-2 opacity-75 bg-slate-400 rounded-xl">
-            <div className="font-bold text-xl">Hello, World!</div>
+            <div className="font-bold text-xl">
+              <p>
+                Hello,{' '}
+                {completObject.company ? completObject.company.domain : null}
+              </p>
+            </div>
           </div>
-        </InfoBox> */}
+        </InfoBox>
         <></>
       </GoogleMap>
     </LoadScript>
