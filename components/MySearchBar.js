@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+import React, { useContext } from "react"
+import { useFormik } from "formik"
+import * as Yup from "yup"
 
-import Context from './Context'
+import Context from "./Context"
 
-import { AiFillAlert } from 'react-icons/ai'
-import { SiOpenstreetmap } from 'react-icons/si'
-import { FaInfoCircle, FaMapMarked } from 'react-icons/fa'
+import { AiFillAlert } from "react-icons/ai"
+import { SiOpenstreetmap } from "react-icons/si"
+import { FaInfoCircle, FaMapMarked } from "react-icons/fa"
 
 const MySearchBar = (props) => {
   const { onClickInfo } = props
@@ -14,38 +14,34 @@ const MySearchBar = (props) => {
 
   const formik = useFormik({
     initialValues: {
-      userIP: ''
+      userIP: "",
     },
     validationSchema: Yup.object({
       userIP: Yup.string()
         .matches(
           /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
         )
-        .required('Required')
+        .required("Required"),
     }),
     onSubmit: (values) => {
       setIp(values.userIP)
-    }
+    },
   })
 
   return (
     <div
       className="w-full h-64 md:h-96"
       style={{
-        backgroundImage:
-          "url('https://pixabay.com/get/gf0abd648eb9ddc34b04c5f9dc85f955d1e5fe931947c06fb70d5c77bbe5e744238842610fac4c1a651fbec614752cb8fe9d4091eb3f449027ddff265f1167ac1e9ede634584f4cc7831a139b3d0d9af0_1920.jpg') ",
-        backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'contain',
-        backgroundPosition: 'center left'
-      }}
-    >
+        backgroundImage: "url('images/cubes-g14d7ee66b_1920.jpg') ",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center left",
+      }}>
       <p className="text-white flex justify-center font-bold text-2xl md:text-5xl mt-3 font-mono">
         IP Adress Tracker
       </p>
       <form
         onSubmit={formik.handleSubmit}
-        className="md:w-4/12 w-11/12 mx-auto my-5 md:my-8"
-      >
+        className="md:w-4/12 w-11/12 mx-auto my-5 md:my-8">
         {/* section searchbar  */}
         <div className="flex">
           <input
@@ -60,8 +56,7 @@ const MySearchBar = (props) => {
           />
           <button
             type="submit"
-            className="btn border-t border-r border-b text-3xl p-2 rounded-r-lg  bg-blue-400 text-blue-900 hover:bg-blue-900 hover:text-blue-300 transition-all duration-500"
-          >
+            className="btn border-t border-r border-b text-3xl p-2 rounded-r-lg  bg-blue-400 text-blue-900 hover:bg-blue-900 hover:text-blue-300 transition-all duration-500">
             <SiOpenstreetmap />
           </button>
         </div>
@@ -69,9 +64,8 @@ const MySearchBar = (props) => {
         {/* section error message  */}
         {formik.touched.userIP && formik.errors.userIP ? (
           <div
-            style={{ boxShadow: '0 0 18px red' }}
-            className="mt-2 flex items-center justify-center text-red-400 bg-red-700 p-2 rounded-xl shadow-lg"
-          >
+            style={{ boxShadow: "0 0 18px red" }}
+            className="mt-2 flex items-center justify-center text-red-400 bg-red-700 p-2 rounded-xl shadow-lg">
             <AiFillAlert />
             <span className="mx-2 text-red-100">
               This is not a correct ip adress!
@@ -84,8 +78,7 @@ const MySearchBar = (props) => {
           <button
             type="button"
             onClick={onClickInfo}
-            className="bg-slate-400 p-1 rounded text-2xl mt-4 "
-          >
+            className="bg-slate-400 p-1 rounded text-2xl mt-4 ">
             <FaInfoCircle />
           </button>
         </div>
